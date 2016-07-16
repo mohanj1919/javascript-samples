@@ -1,0 +1,12 @@
+1. what type of scoping rule(s) does JS have? 
+Ans) lexical
+Exceptions(how to cheat scope rule)?
+Ans) by using eval and with keywords we can cheat scope rules.
+
+2. what are the different ways you can create a new scope?
+Ans) creating new function.
+    catch block
+
+3. what's difference between undeclared and undefined?
+Ans) undefined: doesn't have any value currently.
+    undeclared: variable is not yet created. we will get reference error in this case.

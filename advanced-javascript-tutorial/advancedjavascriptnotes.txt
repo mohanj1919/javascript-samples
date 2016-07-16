@@ -1,0 +1,19 @@
+Tutor: kyle simpson
+Her/His Work: labjs, grips
+Recommended books:
+JavaScript Patterns
+Build Better Applications with Coding and Design Patterns
+By Stoyan Stefanov
+
+High Performance JavaScript
+Build Faster Web Application Interfaces
+By Nicholas C. Zakas
+You-Dont-Know-JS
+By kyle simpson.
+
+Topics:
+	1. Scope and Closures
+		a. Nested Scope
+		b. Hoisting
+		c. This
+		d. Closure

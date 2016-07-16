@@ -1,0 +1,42 @@
+Scope: where to look for things?
+
+Javascript is compiled language, unlike C++/java in which executable code/byte code are output of the compilation, 
+the compiled code is not converted into any format.
+Javascript is compiled and all the source code is maintained as is after compilation.
+Bash scripting is interpreted language, in which interpreter (goes from top to bottom) looks for each line and interprets.
+For example, if interpreter is on line 3, it may not know the variable being used in line 4.
+Javascript has function scope only. As per current standards, functions are the smallest atomic scope.
+Javascript compiler looks for blocks(functions) of scope.
+Finding variables, functions (code blocks) is IMP part of the compilation.
+There are more advanced javascript compilers which process javascript code JIT way.
+ 
+Example:
+compilation process:
+var foo = "bar"; //variable decoration.
+//var foo is variable decoration part.
+//foo = "bar"; is variable initialization.
+function bar(){ //Add add bar to decoration list in global scope
+var foo = "baz"; // var foo is a variable for "bar" scope.
+}
+function baz(foo){ //Add add baz to decoration list in global scope
+foo = "bam"; // named parameter foo is registered in baz scope.
+bam = "yay";
+}
+In execution phase, var are not considered. Execution phase performs initialization.
+scope manager gives the scope of the variables/function registered in the compilation phase.
+Execution engine always asks for local scope first, global scope next.
+
+function baz(foo){
+foo = "bam";
+bam = "yay"; // when engine executes this line, bam reference is not present in baz's scope (local scope).
+Engine goes one level up (global scope for the current block) and asks for the bam reference.
+If strict mode is not used, then "bam" reference is created in global scope. In strict mode, error occurred here.
+Undeclared means, there is no LHS reference for the decorator in any of the scopes engine has access to.
+Undefined means un-initialized.
+}
+
+types of scope: 
+    1. lexical scope - means compile time scope 
+        (mostly all languages are lexical scope)
+    2. dynamic scope - run time scope binding 
+        examples: shell, perl
